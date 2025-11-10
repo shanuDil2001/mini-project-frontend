@@ -30,7 +30,7 @@ function LoginPage() {
 
    return (
       <div className="w-full h-screen bg-linear-to-b from-green-100 to-white flex flex-col justify-center items-center gap-4">
-         <h1 className="font-bold text-2xl text-yellow-300 text-shadow-md mb-2 md:text-3xl">Navindu <span className="text-blue-300">Deshan</span></h1>
+         <h1 className="font-bold text-2xl text-yellow-300 text-shadow-md mb-2 md:text-3xl">Doc <span className="text-blue-300">Portal</span></h1>
 
          <div className="w-[90%] border border-green-200 p-5 rounded-lg flex flex-col justify-center items-center gap-4 md:w-[500px]">
             <input
