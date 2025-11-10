@@ -33,7 +33,6 @@ function Dashboard() {
       fetchFiles();
    }, [loading]);
 
-   // ✅ Delete file from Supabase + Database
    async function deleteFile(fileId, fileUrls) {
       try {
          if (!fileUrls || fileUrls.length === 0) {
@@ -47,7 +46,7 @@ function Dashboard() {
                // Remove prefix to get relative path
                const prefix = `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/new-project/`;
                if (url.startsWith(prefix)) {
-                  return url.replace(prefix, ""); // keep only the path part
+                  return url.replace(prefix, ""); 
                }
                return null;
             })
@@ -60,18 +59,16 @@ function Dashboard() {
             return;
          }
 
-         // Delete from Supabase
          const { error: storageError } = await supabase.storage
             .from("new-project")
             .remove(pathsToDelete);
 
          if (storageError) {
-            console.error("❌ Supabase delete error:", storageError);
+            console.error("Supabase delete error:", storageError);
             toast.error("Failed to delete from Supabase Storage.");
             return;
          }
 
-         // Delete MongoDB record
          await axios.delete(`${import.meta.env.VITE_BASE_URL}/api/files/${fileId}`, {
             headers: {
                Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -79,9 +76,9 @@ function Dashboard() {
          });
 
          setFiles(prev => prev.filter(f => f.fileId !== fileId));
-         toast.success("✅ File deleted successfully!");
+         toast.success("File deleted successfully!");
       } catch (error) {
-         console.error("🔥 Delete failed:", error);
+         console.error("Delete failed:", error);
          toast.error("Failed to delete file. Please try again.");
       }
    }

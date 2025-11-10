@@ -4,6 +4,7 @@ import CommonLayout from "./pages/commonLayout"
 import LoginPage from "./pages/login"
 import Dashboard from "./pages/admin/dashboard"
 import NewFile from "./pages/admin/newFile"
+import { Toaster } from "react-hot-toast"
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="new-file" element={<NewFile />} />
         </Route>
       </Routes>
+      <Toaster />
     </div>
   )
 }
