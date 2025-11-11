@@ -46,7 +46,7 @@ function Dashboard() {
                // Remove prefix to get relative path
                const prefix = `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/new-project/`;
                if (url.startsWith(prefix)) {
-                  return url.replace(prefix, ""); 
+                  return url.replace(prefix, "");
                }
                return null;
             })
@@ -134,14 +134,17 @@ function Dashboard() {
                         >
                            <td className="py-3 px-4">{index + 1}</td>
                            <td className="py-3 px-4 font-medium">{file.fileName}</td>
+                           {/* <a href={file.file_url} target="_blank" rel="noopener noreferrer"> Download </a> */}
                            <td className="py-3 px-4 font-medium">{file.description}</td>
-                           <td className="py-3 px-4">
+                           {/* <td className="py-3 px-4 font-medium"></td> */}
+                           <td className="py-3 px-4 flex gap-3">
+                              <a className="p-1.5 px-3 bg-blue-400 text-white rounded-md hover:bg-blue-500 cursor-pointer font-normal" href={file.fileUrl} target="_blank" rel="noopener noreferrer"> Download </a>
                               <button
                                  onClick={() => {
                                     deleteFile(file.fileId, file.fileUrl)
                                     setLoading(true);
                                  }}
-                                 className="px-3 py-1 bg-red-400 text-white rounded-md hover:bg-red-600 cursor-pointer"
+                                 className="p-1.5 px-3 bg-red-400 text-white rounded-md hover:bg-red-500 cursor-pointer"
                               >
                                  Delete
                               </button>
