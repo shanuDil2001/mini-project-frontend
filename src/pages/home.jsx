@@ -69,7 +69,7 @@ function Home() {
                 onClick={() => window.open(file.fileUrl, "_blank")}
                 className="text-sm text-blue-600 hover:text-blue-800 font-medium"
               >
-                View
+                Download
               </button>
             </div>
           ))}
