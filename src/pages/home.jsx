@@ -27,7 +27,7 @@ function Home() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-50">
+      <div className="flex items-center justify-center min-h-screen">
         <p className="text-gray-600 text-lg font-medium animate-pulse">
           Loading files...
         </p>
